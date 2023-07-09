@@ -35,7 +35,6 @@ def fuse_pixel(Hov, Sov, Vov, Hun, Sun, Vun, th1, th2):
     
 if __name__ == "__main__":
    
-    # OpenCV read the images as uint8, BGR color space. Cast to float32
     ov = imread("../../images/window/ov.jpg") 
     un = imread("../../images/window/un.jpg")
 
@@ -55,7 +54,7 @@ if __name__ == "__main__":
         fused_image[x, y] = fuse_pixel(*ov[x, y, ], *un[x, y, ], th1, th2) 
         # print(f"{x}, {y}: ov => {img1[x, y, ]} \t un => {img2[x, y, ]} \t fu => {fused_image[x, y, ]}")
 
-    # Reconvert to BGR color space
+    # Reconvert to RGB color space
     fused_image = hsv2rgb(fused_image)
 
     # Save the image
